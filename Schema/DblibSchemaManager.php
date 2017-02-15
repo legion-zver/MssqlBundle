@@ -19,11 +19,6 @@ use Doctrine\DBAL\Schema\SQLServerSchemaManager;
 
 class DblibSchemaManager extends SQLServerSchemaManager
 {
-
-
-  
-   
-
     protected function _getPortableSequenceDefinition($sequence)
     {
         return end($sequence);
