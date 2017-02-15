@@ -25,7 +25,7 @@ use Doctrine\DBAL\DBALException,
     Doctrine\DBAL\Schema\TableDiff;
 
 use Doctrine\DBAL\Schema\Column;
-use Doctrine\DBAL\Schema\ColumnDef;
+use Doctrine\DBAL\Schema\ColumnDiff;
 use Doctrine\DBAL\Schema\Identifier;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
@@ -392,7 +392,7 @@ class DblibPlatform extends SQLServer2008Platform
         return 'ADD' . $this->getDefaultConstraintDeclarationSQL($tableName, $columnDef);
     }
 
-    private function alterColumnRequiresDropDefaultConstraint(ColumnDef $columnDiff) {
+    private function alterColumnRequiresDropDefaultConstraint(ColumnDiff $columnDiff) {
         if ( ! $columnDiff->fromColumn instanceof Column) {
             return false;
         }
