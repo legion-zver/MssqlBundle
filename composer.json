@@ -1,5 +1,5 @@
 {
-    "name": "realestateconz/mssql-bundle",
+    "name": "legion21/mssql-bundle",
     "type": "symfony-bundle",
     "description": "Microsoft SQL Server Bundle for Symfony 2",
     "keywords": ["mssql", "sql server", "driver"],
