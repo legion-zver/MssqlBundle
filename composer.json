@@ -20,7 +20,7 @@
         {
           "name": "Alexander Garin (Fork, only little fixes)",
           "homepage": "https://ppapp.ru"
-        },
+        }
     ],
     "require": {
         "doctrine/common": "~2.2,>=2.2.3"
