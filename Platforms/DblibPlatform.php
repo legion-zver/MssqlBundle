@@ -31,6 +31,7 @@ use Doctrine\DBAL\Schema\Identifier;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Platforms\SQLServer2008Platform;
 
+
 /**
  * The DblibPlatform provides the behavior, features and SQL dialect of the
  * MsSQL database platform.
