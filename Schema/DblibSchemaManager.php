@@ -149,7 +149,7 @@ class DblibSchemaManager extends SQLServerSchemaManager
             AND tables.name = 'tablename'
             AND all_columns.name = 'columnname'
              */
-            
+
             $queryParts[] = 'DROP COLUMN ' . $column->getQuotedName($this);
         }
 
