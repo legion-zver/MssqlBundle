@@ -57,21 +57,7 @@ tds version = 8.0
 
 ### NVARCHAR & NTEXT data types ( INSERT / UPDATE SQL)
 
-For user Russia text in NVARCHAR and NTEXT use Wrapper Connection:
-
-```
-doctrine:
-    dbal:
-        default_connection:     default
-        connections:
-            default:
-                wrapper_class:  Realestate\MssqlBundle\Wrapper\Connection
-                driver_class:   Realestate\MssqlBundle\Driver\PDODblib\Driver
-                host:           %database_host%
-                dbname:         %database_prefix%%database_name%
-                user:           %database_user%
-                password:       %database_password%
-```
+Add Types For Add 'N' to Update / Insert Requests
 
 
 
