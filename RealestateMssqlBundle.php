@@ -18,6 +18,9 @@ class RealestateMssqlBundle extends Bundle
 {
     public function boot()
     {
+        Type::overrideType('string', 'Realestate\MssqlBundle\Types\StringType');
+        Type::overrideType('text', 'Realestate\MssqlBundle\Types\TextType');
+
         // Register custom data types
         if(!Type::hasType('uniqueidentifier')) {
             Type::addType('uniqueidentifier', 'Realestate\MssqlBundle\Types\UniqueidentifierType');

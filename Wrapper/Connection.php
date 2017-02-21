@@ -12,7 +12,9 @@ class Connection extends \Doctrine\DBAL\Connection {
     public function executeUpdate($query, array $params = array(), array $types = array()) {
         foreach ($types as $i => $type) {
             if($type === "text" || $type === "string") {
-                $query = $this->addPrefixToParameter($query, $i, 'N');
+                if(!is_null($params[$i])) {
+                    $query = $this->addPrefixToParameter($query, $i, 'N');
+                }
             }
         }
         return parent::executeUpdate($query, $params, $types);
