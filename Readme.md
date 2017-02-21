@@ -55,13 +55,23 @@ tds version = 4.2
 to
 tds version = 8.0
 
-### NVARCHAR & NTEXT data types
-NVARCHAR & NTEXT are not supported.
-In SQL 2000 SP4 or newer, SQL 2005 or SQL 2008, if you do a query that returns NTEXT type data, you may encounter the following exception:
-_mssql.MssqlDatabaseError: SQL Server message 4004, severity 16, state 1, line 1:
-Unicode data in a Unicode-only collation or ntext data cannot be sent to clients using DB-Library (such as ISQL) or ODBC version 3.7 or earlier.
+### NVARCHAR & NTEXT data types ( INSERT / UPDATE SQL)
 
-It means that SQL Server is unable to send Unicode data to FTREETDS, because of shortcomings of FTREETDS. You have to CAST or CONVERT the data to equivalent NVARCHAR data type, which does not exhibit this behaviour.
+For user Russia text in NVARCHAR and NTEXT use Wrapper Connection:
+
+```
+doctrine:
+    dbal:
+        default_connection:     default
+        connections:
+            default:
+                wrapper_class:  Realestate\MssqlBundle\Wrapper\Connection
+                driver_class:   Realestate\MssqlBundle\Driver\PDODblib\Driver
+                host:           %database_host%
+                dbname:         %database_prefix%%database_name%
+                user:           %database_user%
+                password:       %database_password%
+```
 
 
 
