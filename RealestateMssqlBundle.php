@@ -18,19 +18,21 @@ class RealestateMssqlBundle extends Bundle
 {
     public function boot()
     {
-        Type::overrideType('string', 'Realestate\MssqlBundle\Types\StringType');
-        Type::overrideType('text', 'Realestate\MssqlBundle\Types\TextType');
+        if("mssql" == $driver = $this->container->getParameter('database_type')) {
+            Type::overrideType('string', 'Realestate\MssqlBundle\Types\StringType');
+            Type::overrideType('text', 'Realestate\MssqlBundle\Types\TextType');
 
-        // Register custom data types
-        if(!Type::hasType('uniqueidentifier')) {
-            Type::addType('uniqueidentifier', 'Realestate\MssqlBundle\Types\UniqueidentifierType');
-        }
-        
-        if(!Type::hasType('geography')) {
-            Type::addType('geography', 'Realestate\MssqlBundle\Types\PointType');
-        }
+            // Register custom data types
+            if (!Type::hasType('uniqueidentifier')) {
+                Type::addType('uniqueidentifier', 'Realestate\MssqlBundle\Types\UniqueidentifierType');
+            }
 
-        Type::overrideType('date', 'Realestate\MssqlBundle\Types\DateType');        
-        Type::overrideType('datetime', 'Realestate\MssqlBundle\Types\DateTimeType');
+            if (!Type::hasType('geography')) {
+                Type::addType('geography', 'Realestate\MssqlBundle\Types\PointType');
+            }
+
+            Type::overrideType('date', 'Realestate\MssqlBundle\Types\DateType');
+            Type::overrideType('datetime', 'Realestate\MssqlBundle\Types\DateTimeType');
+        }
     }
 }

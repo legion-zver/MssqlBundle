@@ -1,6 +1,5 @@
 Installation
 -------
-
 ### Step 1. Install MssqlBundle
 Add the **realestate/mssql-bundle** into **composer.json**
 
@@ -10,9 +9,15 @@ Add the **realestate/mssql-bundle** into **composer.json**
     },
 
 And run
+
 ``` bash
 $ php composer.phar install
 ```
+
+Add to parameters.yml
+    
+    database_type: mssql
+    
 ### Step 2. Configure DBAL's connection to use MssqlBundle
 In config.yml, remove the "driver" param and add "driver_class" instead:
 
