@@ -18,7 +18,7 @@ class TextType extends \Doctrine\DBAL\Types\TextType
         if(is_null($value) || empty($value)) {
             return '';
         }
-        return $value;
+        return htmlspecialchars($value, ENT_QUOTES);
     }
 
     public function convertToDatabaseValueSQL($sqlExpr, AbstractPlatform $platform) {

@@ -18,7 +18,7 @@ class StringType extends \Doctrine\DBAL\Types\StringType
         if(is_null($value) || empty($value)) {
             return '';
         }
-        return $value;
+        return htmlspecialchars($value, ENT_QUOTES);
     }
 
     public function convertToDatabaseValueSQL($sqlExpr, AbstractPlatform $platform) {
